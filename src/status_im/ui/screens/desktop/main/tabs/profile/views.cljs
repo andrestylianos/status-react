@@ -7,6 +7,7 @@
             [status-im.i18n :as i18n]
             [clojure.string :as string]
             [status-im.ui.components.qr-code-viewer.views :as qr-code-viewer]
+            [status-im.utils.build :as build]
             [status-im.ui.screens.desktop.main.tabs.profile.styles :as styles]
             [status-im.ui.screens.profile.user.views :as profile]))
 
@@ -73,5 +74,7 @@
      [react/view {:style {:height 1 :background-color "#e8ebec" :margin-horizontal 16}}]
      [react/touchable-highlight {:on-press #(re-frame/dispatch [:logout])
                                  :style {:margin-top 60}}
-      [react/view
-       [react/text {:style {:color :red}} "Log out"]]]]))
+
+      [react/view {:style styles/logout-row}
+       [react/text {:style {:color colors/red}} (i18n/label :t/logout)]
+       [react/text {:style {:color colors/gray}} "V" build/version]]]]))

@@ -72,3 +72,7 @@
 (def qr-code-copy-text
   {:font-size 16
    :color colors/white})
+
+(def logout-row
+  {:justify-content :space-between
+   :flex-direction  :row})
